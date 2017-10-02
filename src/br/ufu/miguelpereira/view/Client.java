@@ -4,7 +4,6 @@ import br.ufu.miguelpereira.thrift.Edge;
 import br.ufu.miguelpereira.thrift.Operations;
 import br.ufu.miguelpereira.thrift.Vertex;
 
-import org.apache.thrift.TException;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.protocol.TProtocol;
