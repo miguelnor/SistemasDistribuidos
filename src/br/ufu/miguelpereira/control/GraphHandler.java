@@ -248,14 +248,16 @@ public class GraphHandler implements Operations.Iface {
     @Override
     public String showGraph() {
         synchronized (G) {
-            String exibir = "Vértices: ";
+            String exibir = "Vértices: \n";
             for (Vertex v : G.getV()) {
-                exibir = exibir + v.getNome() + " ,";
+                exibir = exibir + v.getNome() + " Peso: " + v.getPeso() +
+                        " Cor: " + v.getCor() + " Descrição: " + v.getDescricao() + "\n";
             }
             exibir = exibir + "\n";
-            exibir = exibir + "Arestas: ";
+            exibir = exibir + "Arestas: \n";
             for (Edge a : G.getA()) {
-                exibir = exibir + "(" + a.getV1() + ", " + a.getV2() + ")";
+                exibir = exibir + "(" + a.getV1() + ", " + a.getV2() + ") Peso: " +
+                        a.getPeso() + " Flag: " + a.getFlag() + " Descrição: " + a.getDescricao() + "\n";
             }
             return exibir;
         }
@@ -266,7 +268,8 @@ public class GraphHandler implements Operations.Iface {
         String exibir = "";
         synchronized (G.getV()) {
             for (Vertex v : G.getV()) {
-                exibir = exibir + "Vértice: " + v.getNome() + " Peso: " + v.getPeso() + " Cor: " + v.getCor() + " Descrição: " + v.getDescricao() + "\n";
+                exibir = exibir + "Vértice: " + v.getNome() + " Peso: " + v.getPeso() +
+                        " Cor: " + v.getCor() + " Descrição: " + v.getDescricao() + "\n";
             }
         }
         return exibir;
@@ -277,7 +280,8 @@ public class GraphHandler implements Operations.Iface {
         String exibir = "";
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
-                exibir = exibir + "Aresta: " + "(" + a.getV1() + ", " + a.getV2() + ") Peso: " + a.getPeso() + " Flag: " + a.getFlag() + " Descrição: " + a.getDescricao() + "\n";
+                exibir = exibir + "Aresta: " + "(" + a.getV1() + ", " + a.getV2() + ") Peso: " +
+                        a.getPeso() + " Flag: " + a.getFlag() + " Descrição: " + a.getDescricao() + "\n";
             }
         }
         return exibir;
