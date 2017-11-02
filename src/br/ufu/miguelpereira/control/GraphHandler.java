@@ -253,7 +253,7 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public String showVertex() {    
+    public Vertex showVertex() {
         String exibir = "";
         synchronized (G.getV()) {
             for (Vertex v : G.getV()) {

@@ -37,7 +37,7 @@ service Operations {
     Vertex getVertex(1:i32 nome),
     Edge getEdge(1:i32 v1,2:i32 v2),
     Graph showGraph(),
-    Vertex showVertex(),
+    list<Vertex> showVertex(),
     Edge showEdge(),
     list<Vertex> showVertexOfEdges(1:i32 v1,2:i32 v2),
     list<Edge> showEdgesOfVertex(1:i32 nomeV),
