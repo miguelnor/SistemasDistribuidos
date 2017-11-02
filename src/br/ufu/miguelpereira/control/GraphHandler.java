@@ -266,37 +266,38 @@ public class GraphHandler implements Operations.Iface {
 
     @Override
     public List<Edge> showEdge() {
-        String exibir = "";
+        ArrayList<Edge> arestas = new ArrayList<>();
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
-                exibir = exibir + "Aresta: " + "(" + a.getV1() + ", " + a.getV2() + ") Peso: " +
-                        a.getPeso() + " Flag: " + a.getFlag() + " Descrição: " + a.getDescricao() + "\n";
+                arestas.add(a);
             }
         }
-        return exibir;
+        return arestas;
     }
 
     @Override
     public List<Vertex> showVertexOfEdges(int v1, int v2) {
-        return ("(" + v1 + ", " + v2 + ")");
+        ArrayList<Vertex> vertices = new ArrayList<>();
+        vertices.add(getVertex(v1));
+        vertices.add(getVertex(v2));
+        return vertices;
     }
 
     @Override
     public List<Edge> showEdgesOfVertex(int nomeV) {
-        String exibir = "Arestas do vértice " + nomeV + ": ";
+        ArrayList<Edge> arestas = new ArrayList<>();
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
                 if (a.getV1() == nomeV || a.getV2() == nomeV) {
-                    exibir = exibir + "(" + a.getV1() + ", " + a.getV2() + ")";
+                    arestas.add(a);
                 }
             }
         }
-        return exibir;
+        return arestas;
     }
 
     @Override
     public List<Vertex> showAdjacency(int nomeV) {
-        String exibir = "Vizinhos de " + nomeV + " são: \n";
         ArrayList<Vertex> adjacentes = new ArrayList<>();
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
@@ -309,22 +310,13 @@ public class GraphHandler implements Operations.Iface {
                     adjacentes.add(getVertex(a.getV1()));
                 }
             }
-        }synchronized (adjacentes) {
-            if (!adjacentes.isEmpty()) {
-                for (Vertex v : adjacentes) {
-                    exibir = exibir + "Vértice: " + v.getNome() + " " +
-                            "Cor: " + v.getCor() + " " +
-                            "Peso: " + v.getPeso() + " " +
-                            "Descrição: " + v.getDescricao() + "\n";
-                }
-            }
         }
-        return exibir;
+        return adjacentes;
     }
 
     @Override
     public List<Edge> smallerPath(int nomeV1, int nomeV2) {
-        return "Dijkstra";
+        return null;
     }
     //TODO Adicinar algoritmo de menor caminho
 }
