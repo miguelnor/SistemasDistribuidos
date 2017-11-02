@@ -38,7 +38,7 @@ service Operations {
     Edge getEdge(1:i32 v1,2:i32 v2),
     Graph showGraph(),
     list<Vertex> showVertex(),
-    Edge showEdge(),
+    list<Edge> showEdge(),
     list<Vertex> showVertexOfEdges(1:i32 v1,2:i32 v2),
     list<Edge> showEdgesOfVertex(1:i32 nomeV),
     list<Vertex> showAdjacency(1:i32 nomeV),

@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GraphHandler implements Operations.Iface {
 
@@ -253,19 +254,18 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public Vertex showVertex() {
-        String exibir = "";
+    public List<Vertex> showVertex() {
+        ArrayList<Vertex> vertices = new ArrayList<>();
         synchronized (G.getV()) {
             for (Vertex v : G.getV()) {
-                exibir = exibir + "Vértice: " + v.getNome() + " Peso: " + v.getPeso() +
-                        " Cor: " + v.getCor() + " Descrição: " + v.getDescricao() + "\n";
+                vertices.add(v);
             }
         }
-        return exibir;
+        return vertices;
     }
 
     @Override
-    public String showEdge() {
+    public List<Edge> showEdge() {
         String exibir = "";
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
@@ -277,12 +277,12 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public String showVertexOfEdges(int v1, int v2) {
+    public List<Vertex> showVertexOfEdges(int v1, int v2) {
         return ("(" + v1 + ", " + v2 + ")");
     }
 
     @Override
-    public String showEdgesOfVertex(int nomeV) {
+    public List<Edge> showEdgesOfVertex(int nomeV) {
         String exibir = "Arestas do vértice " + nomeV + ": ";
         synchronized (G.getA()) {
             for (Edge a : G.getA()) {
@@ -295,7 +295,7 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public String showAdjacency(int nomeV) {
+    public List<Vertex> showAdjacency(int nomeV) {
         String exibir = "Vizinhos de " + nomeV + " são: \n";
         ArrayList<Vertex> adjacentes = new ArrayList<>();
         synchronized (G.getA()) {
@@ -323,7 +323,7 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public String smallerPath(int nomeV1, int nomeV2) {
+    public List<Edge> smallerPath(int nomeV1, int nomeV2) {
         return "Dijkstra";
     }
     //TODO Adicinar algoritmo de menor caminho

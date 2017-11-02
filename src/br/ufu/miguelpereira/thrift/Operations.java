@@ -38,7 +38,7 @@ public class Operations {
 
     public java.util.List<Vertex> showVertex() throws org.apache.thrift.TException;
 
-    public Edge showEdge() throws org.apache.thrift.TException;
+    public java.util.List<Edge> showEdge() throws org.apache.thrift.TException;
 
     public java.util.List<Vertex> showVertexOfEdges(int v1, int v2) throws org.apache.thrift.TException;
 
@@ -78,7 +78,7 @@ public class Operations {
 
     public void showVertex(org.apache.thrift.async.AsyncMethodCallback<java.util.List<Vertex>> resultHandler) throws org.apache.thrift.TException;
 
-    public void showEdge(org.apache.thrift.async.AsyncMethodCallback<Edge> resultHandler) throws org.apache.thrift.TException;
+    public void showEdge(org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>> resultHandler) throws org.apache.thrift.TException;
 
     public void showVertexOfEdges(int v1, int v2, org.apache.thrift.async.AsyncMethodCallback<java.util.List<Vertex>> resultHandler) throws org.apache.thrift.TException;
 
@@ -414,7 +414,7 @@ public class Operations {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "showVertex failed: unknown result");
     }
 
-    public Edge showEdge() throws org.apache.thrift.TException
+    public java.util.List<Edge> showEdge() throws org.apache.thrift.TException
     {
       send_showEdge();
       return recv_showEdge();
@@ -426,7 +426,7 @@ public class Operations {
       sendBase("showEdge", args);
     }
 
-    public Edge recv_showEdge() throws org.apache.thrift.TException
+    public java.util.List<Edge> recv_showEdge() throws org.apache.thrift.TException
     {
       showEdge_result result = new showEdge_result();
       receiveBase(result, "showEdge");
@@ -997,15 +997,15 @@ public class Operations {
       }
     }
 
-    public void showEdge(org.apache.thrift.async.AsyncMethodCallback<Edge> resultHandler) throws org.apache.thrift.TException {
+    public void showEdge(org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       showEdge_call method_call = new showEdge_call(resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class showEdge_call extends org.apache.thrift.async.TAsyncMethodCall<Edge> {
-      public showEdge_call(org.apache.thrift.async.AsyncMethodCallback<Edge> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+    public static class showEdge_call extends org.apache.thrift.async.TAsyncMethodCall<java.util.List<Edge>> {
+      public showEdge_call(org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
       }
 
@@ -1016,7 +1016,7 @@ public class Operations {
         prot.writeMessageEnd();
       }
 
-      public Edge getResult() throws org.apache.thrift.TException {
+      public java.util.List<Edge> getResult() throws org.apache.thrift.TException {
         if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new java.lang.IllegalStateException("Method call not finished!");
         }
@@ -2393,7 +2393,7 @@ public class Operations {
       }
     }
 
-    public static class showEdge<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, showEdge_args, Edge> {
+    public static class showEdge<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, showEdge_args, java.util.List<Edge>> {
       public showEdge() {
         super("showEdge");
       }
@@ -2402,10 +2402,10 @@ public class Operations {
         return new showEdge_args();
       }
 
-      public org.apache.thrift.async.AsyncMethodCallback<Edge> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+      public org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.thrift.async.AsyncMethodCallback<Edge>() { 
-          public void onComplete(Edge o) {
+        return new org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>>() { 
+          public void onComplete(java.util.List<Edge> o) {
             showEdge_result result = new showEdge_result();
             result.success = o;
             try {
@@ -2449,7 +2449,7 @@ public class Operations {
         return false;
       }
 
-      public void start(I iface, showEdge_args args, org.apache.thrift.async.AsyncMethodCallback<Edge> resultHandler) throws org.apache.thrift.TException {
+      public void start(I iface, showEdge_args args, org.apache.thrift.async.AsyncMethodCallback<java.util.List<Edge>> resultHandler) throws org.apache.thrift.TException {
         iface.showEdge(resultHandler);
       }
     }
@@ -13346,12 +13346,12 @@ public class Operations {
   public static class showEdge_result implements org.apache.thrift.TBase<showEdge_result, showEdge_result._Fields>, java.io.Serializable, Cloneable, Comparable<showEdge_result>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("showEdge_result");
 
-    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRUCT, (short)0);
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.LIST, (short)0);
 
     private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new showEdge_resultStandardSchemeFactory();
     private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new showEdge_resultTupleSchemeFactory();
 
-    public Edge success; // required
+    public java.util.List<Edge> success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -13416,7 +13416,8 @@ public class Operations {
     static {
       java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Edge.class)));
+          new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Edge.class))));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(showEdge_result.class, metaDataMap);
     }
@@ -13425,7 +13426,7 @@ public class Operations {
     }
 
     public showEdge_result(
-      Edge success)
+      java.util.List<Edge> success)
     {
       this();
       this.success = success;
@@ -13436,7 +13437,11 @@ public class Operations {
      */
     public showEdge_result(showEdge_result other) {
       if (other.isSetSuccess()) {
-        this.success = new Edge(other.success);
+        java.util.List<Edge> __this__success = new java.util.ArrayList<Edge>(other.success.size());
+        for (Edge other_element : other.success) {
+          __this__success.add(new Edge(other_element));
+        }
+        this.success = __this__success;
       }
     }
 
@@ -13449,11 +13454,26 @@ public class Operations {
       this.success = null;
     }
 
-    public Edge getSuccess() {
+    public int getSuccessSize() {
+      return (this.success == null) ? 0 : this.success.size();
+    }
+
+    public java.util.Iterator<Edge> getSuccessIterator() {
+      return (this.success == null) ? null : this.success.iterator();
+    }
+
+    public void addToSuccess(Edge elem) {
+      if (this.success == null) {
+        this.success = new java.util.ArrayList<Edge>();
+      }
+      this.success.add(elem);
+    }
+
+    public java.util.List<Edge> getSuccess() {
       return this.success;
     }
 
-    public showEdge_result setSuccess(Edge success) {
+    public showEdge_result setSuccess(java.util.List<Edge> success) {
       this.success = success;
       return this;
     }
@@ -13479,7 +13499,7 @@ public class Operations {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((Edge)value);
+          setSuccess((java.util.List<Edge>)value);
         }
         break;
 
@@ -13598,9 +13618,6 @@ public class Operations {
     public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
-      if (success != null) {
-        success.validate();
-      }
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
@@ -13638,9 +13655,19 @@ public class Operations {
           }
           switch (schemeField.id) {
             case 0: // SUCCESS
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.success = new Edge();
-                struct.success.read(iprot);
+              if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+                {
+                  org.apache.thrift.protocol.TList _list40 = iprot.readListBegin();
+                  struct.success = new java.util.ArrayList<Edge>(_list40.size);
+                  Edge _elem41;
+                  for (int _i42 = 0; _i42 < _list40.size; ++_i42)
+                  {
+                    _elem41 = new Edge();
+                    _elem41.read(iprot);
+                    struct.success.add(_elem41);
+                  }
+                  iprot.readListEnd();
+                }
                 struct.setSuccessIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -13663,7 +13690,14 @@ public class Operations {
         oprot.writeStructBegin(STRUCT_DESC);
         if (struct.success != null) {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
-          struct.success.write(oprot);
+          {
+            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
+            for (Edge _iter43 : struct.success)
+            {
+              _iter43.write(oprot);
+            }
+            oprot.writeListEnd();
+          }
           oprot.writeFieldEnd();
         }
         oprot.writeFieldStop();
@@ -13689,7 +13723,13 @@ public class Operations {
         }
         oprot.writeBitSet(optionals, 1);
         if (struct.isSetSuccess()) {
-          struct.success.write(oprot);
+          {
+            oprot.writeI32(struct.success.size());
+            for (Edge _iter44 : struct.success)
+            {
+              _iter44.write(oprot);
+            }
+          }
         }
       }
 
@@ -13698,8 +13738,17 @@ public class Operations {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.success = new Edge();
-          struct.success.read(iprot);
+          {
+            org.apache.thrift.protocol.TList _list45 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new java.util.ArrayList<Edge>(_list45.size);
+            Edge _elem46;
+            for (int _i47 = 0; _i47 < _list45.size; ++_i47)
+            {
+              _elem46 = new Edge();
+              _elem46.read(iprot);
+              struct.success.add(_elem46);
+            }
+          }
           struct.setSuccessIsSet(true);
         }
       }
@@ -14478,14 +14527,14 @@ public class Operations {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
-                  org.apache.thrift.protocol.TList _list40 = iprot.readListBegin();
-                  struct.success = new java.util.ArrayList<Vertex>(_list40.size);
-                  Vertex _elem41;
-                  for (int _i42 = 0; _i42 < _list40.size; ++_i42)
+                  org.apache.thrift.protocol.TList _list48 = iprot.readListBegin();
+                  struct.success = new java.util.ArrayList<Vertex>(_list48.size);
+                  Vertex _elem49;
+                  for (int _i50 = 0; _i50 < _list48.size; ++_i50)
                   {
-                    _elem41 = new Vertex();
-                    _elem41.read(iprot);
-                    struct.success.add(_elem41);
+                    _elem49 = new Vertex();
+                    _elem49.read(iprot);
+                    struct.success.add(_elem49);
                   }
                   iprot.readListEnd();
                 }
@@ -14513,9 +14562,9 @@ public class Operations {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (Vertex _iter43 : struct.success)
+            for (Vertex _iter51 : struct.success)
             {
-              _iter43.write(oprot);
+              _iter51.write(oprot);
             }
             oprot.writeListEnd();
           }
@@ -14546,9 +14595,9 @@ public class Operations {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Vertex _iter44 : struct.success)
+            for (Vertex _iter52 : struct.success)
             {
-              _iter44.write(oprot);
+              _iter52.write(oprot);
             }
           }
         }
@@ -14560,14 +14609,14 @@ public class Operations {
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TList _list45 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new java.util.ArrayList<Vertex>(_list45.size);
-            Vertex _elem46;
-            for (int _i47 = 0; _i47 < _list45.size; ++_i47)
+            org.apache.thrift.protocol.TList _list53 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new java.util.ArrayList<Vertex>(_list53.size);
+            Vertex _elem54;
+            for (int _i55 = 0; _i55 < _list53.size; ++_i55)
             {
-              _elem46 = new Vertex();
-              _elem46.read(iprot);
-              struct.success.add(_elem46);
+              _elem54 = new Vertex();
+              _elem54.read(iprot);
+              struct.success.add(_elem54);
             }
           }
           struct.setSuccessIsSet(true);
@@ -15252,14 +15301,14 @@ public class Operations {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
-                  org.apache.thrift.protocol.TList _list48 = iprot.readListBegin();
-                  struct.success = new java.util.ArrayList<Edge>(_list48.size);
-                  Edge _elem49;
-                  for (int _i50 = 0; _i50 < _list48.size; ++_i50)
+                  org.apache.thrift.protocol.TList _list56 = iprot.readListBegin();
+                  struct.success = new java.util.ArrayList<Edge>(_list56.size);
+                  Edge _elem57;
+                  for (int _i58 = 0; _i58 < _list56.size; ++_i58)
                   {
-                    _elem49 = new Edge();
-                    _elem49.read(iprot);
-                    struct.success.add(_elem49);
+                    _elem57 = new Edge();
+                    _elem57.read(iprot);
+                    struct.success.add(_elem57);
                   }
                   iprot.readListEnd();
                 }
@@ -15287,9 +15336,9 @@ public class Operations {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (Edge _iter51 : struct.success)
+            for (Edge _iter59 : struct.success)
             {
-              _iter51.write(oprot);
+              _iter59.write(oprot);
             }
             oprot.writeListEnd();
           }
@@ -15320,9 +15369,9 @@ public class Operations {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Edge _iter52 : struct.success)
+            for (Edge _iter60 : struct.success)
             {
-              _iter52.write(oprot);
+              _iter60.write(oprot);
             }
           }
         }
@@ -15334,14 +15383,14 @@ public class Operations {
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TList _list53 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new java.util.ArrayList<Edge>(_list53.size);
-            Edge _elem54;
-            for (int _i55 = 0; _i55 < _list53.size; ++_i55)
+            org.apache.thrift.protocol.TList _list61 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new java.util.ArrayList<Edge>(_list61.size);
+            Edge _elem62;
+            for (int _i63 = 0; _i63 < _list61.size; ++_i63)
             {
-              _elem54 = new Edge();
-              _elem54.read(iprot);
-              struct.success.add(_elem54);
+              _elem62 = new Edge();
+              _elem62.read(iprot);
+              struct.success.add(_elem62);
             }
           }
           struct.setSuccessIsSet(true);
@@ -16026,14 +16075,14 @@ public class Operations {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
-                  org.apache.thrift.protocol.TList _list56 = iprot.readListBegin();
-                  struct.success = new java.util.ArrayList<Vertex>(_list56.size);
-                  Vertex _elem57;
-                  for (int _i58 = 0; _i58 < _list56.size; ++_i58)
+                  org.apache.thrift.protocol.TList _list64 = iprot.readListBegin();
+                  struct.success = new java.util.ArrayList<Vertex>(_list64.size);
+                  Vertex _elem65;
+                  for (int _i66 = 0; _i66 < _list64.size; ++_i66)
                   {
-                    _elem57 = new Vertex();
-                    _elem57.read(iprot);
-                    struct.success.add(_elem57);
+                    _elem65 = new Vertex();
+                    _elem65.read(iprot);
+                    struct.success.add(_elem65);
                   }
                   iprot.readListEnd();
                 }
@@ -16061,9 +16110,9 @@ public class Operations {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (Vertex _iter59 : struct.success)
+            for (Vertex _iter67 : struct.success)
             {
-              _iter59.write(oprot);
+              _iter67.write(oprot);
             }
             oprot.writeListEnd();
           }
@@ -16094,9 +16143,9 @@ public class Operations {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Vertex _iter60 : struct.success)
+            for (Vertex _iter68 : struct.success)
             {
-              _iter60.write(oprot);
+              _iter68.write(oprot);
             }
           }
         }
@@ -16108,14 +16157,14 @@ public class Operations {
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TList _list61 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new java.util.ArrayList<Vertex>(_list61.size);
-            Vertex _elem62;
-            for (int _i63 = 0; _i63 < _list61.size; ++_i63)
+            org.apache.thrift.protocol.TList _list69 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new java.util.ArrayList<Vertex>(_list69.size);
+            Vertex _elem70;
+            for (int _i71 = 0; _i71 < _list69.size; ++_i71)
             {
-              _elem62 = new Vertex();
-              _elem62.read(iprot);
-              struct.success.add(_elem62);
+              _elem70 = new Vertex();
+              _elem70.read(iprot);
+              struct.success.add(_elem70);
             }
           }
           struct.setSuccessIsSet(true);
@@ -16896,14 +16945,14 @@ public class Operations {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
-                  org.apache.thrift.protocol.TList _list64 = iprot.readListBegin();
-                  struct.success = new java.util.ArrayList<Edge>(_list64.size);
-                  Edge _elem65;
-                  for (int _i66 = 0; _i66 < _list64.size; ++_i66)
+                  org.apache.thrift.protocol.TList _list72 = iprot.readListBegin();
+                  struct.success = new java.util.ArrayList<Edge>(_list72.size);
+                  Edge _elem73;
+                  for (int _i74 = 0; _i74 < _list72.size; ++_i74)
                   {
-                    _elem65 = new Edge();
-                    _elem65.read(iprot);
-                    struct.success.add(_elem65);
+                    _elem73 = new Edge();
+                    _elem73.read(iprot);
+                    struct.success.add(_elem73);
                   }
                   iprot.readListEnd();
                 }
@@ -16931,9 +16980,9 @@ public class Operations {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (Edge _iter67 : struct.success)
+            for (Edge _iter75 : struct.success)
             {
-              _iter67.write(oprot);
+              _iter75.write(oprot);
             }
             oprot.writeListEnd();
           }
@@ -16964,9 +17013,9 @@ public class Operations {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Edge _iter68 : struct.success)
+            for (Edge _iter76 : struct.success)
             {
-              _iter68.write(oprot);
+              _iter76.write(oprot);
             }
           }
         }
@@ -16978,14 +17027,14 @@ public class Operations {
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TList _list69 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new java.util.ArrayList<Edge>(_list69.size);
-            Edge _elem70;
-            for (int _i71 = 0; _i71 < _list69.size; ++_i71)
+            org.apache.thrift.protocol.TList _list77 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new java.util.ArrayList<Edge>(_list77.size);
+            Edge _elem78;
+            for (int _i79 = 0; _i79 < _list77.size; ++_i79)
             {
-              _elem70 = new Edge();
-              _elem70.read(iprot);
-              struct.success.add(_elem70);
+              _elem78 = new Edge();
+              _elem78.read(iprot);
+              struct.success.add(_elem78);
             }
           }
           struct.setSuccessIsSet(true);
