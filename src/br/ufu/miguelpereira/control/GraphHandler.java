@@ -246,25 +246,14 @@ public class GraphHandler implements Operations.Iface {
     }
 
     @Override
-    public String showGraph() {
+    public Graph showGraph() {
         synchronized (G) {
-            String exibir = "Vértices: \n";
-            for (Vertex v : G.getV()) {
-                exibir = exibir + v.getNome() + " Peso: " + v.getPeso() +
-                        " Cor: " + v.getCor() + " Descrição: " + v.getDescricao() + "\n";
-            }
-            exibir = exibir + "\n";
-            exibir = exibir + "Arestas: \n";
-            for (Edge a : G.getA()) {
-                exibir = exibir + "(" + a.getV1() + ", " + a.getV2() + ") Peso: " +
-                        a.getPeso() + " Flag: " + a.getFlag() + " Descrição: " + a.getDescricao() + "\n";
-            }
-            return exibir;
+            return G;
         }
     }
 
     @Override
-    public String showVertex() {
+    public String showVertex() {    
         String exibir = "";
         synchronized (G.getV()) {
             for (Vertex v : G.getV()) {
