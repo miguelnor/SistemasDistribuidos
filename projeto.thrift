@@ -36,11 +36,11 @@ service Operations {
     bool updateGraph(1:list<Vertex> V,2:list<Edge> A),
     Vertex getVertex(1:i32 nome),
     Edge getEdge(1:i32 v1,2:i32 v2),
-    string showGraph(),
-    string showVertex(),
-    string showEdge(),
-    string showVertexOfEdges(1:i32 v1,2:i32 v2),
-    string showEdgesOfVertex(1:i32 nomeV),
-    string showAdjacency(1:i32 nomeV),
-    string smallerPath(1:i32 v1,2:i32 v2)
+    Graph showGraph(),
+    list<Vertex> showVertex(),
+    Edge showEdge(),
+    list<Vertex> showVertexOfEdges(1:i32 v1,2:i32 v2),
+    list<Edge> showEdgesOfVertex(1:i32 nomeV),
+    list<Vertex> showAdjacency(1:i32 nomeV),
+    list<Edge> smallerPath(1:i32 v1,2:i32 v2)
 }
